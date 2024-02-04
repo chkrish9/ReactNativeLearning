@@ -7,6 +7,11 @@ import { Camera } from 'expo-camera';
 import { shareAsync } from 'expo-sharing';
 import * as MediaLibrary from 'expo-media-library';
 
+/**
+ * 
+ * Reference https://github.com/chelseafarley/CameraAppTutorial/blob/main/App.js
+ */
+
 const Profile = () => {
     let cameraRef = useRef();
     const [hasCameraPermission, setHasCameraPermission] = useState();
