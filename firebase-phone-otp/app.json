@@ -14,17 +14,25 @@
     "assetBundlePatterns": [
       "**/*"
     ],
+    "plugins": ["@react-native-firebase/app", "@react-native-firebase/auth"],
     "ios": {
       "supportsTablet": true
     },
     "android": {
+      "googleServicesFile": "./google-services.json",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.chkrish9.firebasephoneotp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "a1bdc8b8-e160-4bde-88cd-d2155f305bf2"
+      }
     }
   }
 }
