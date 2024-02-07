@@ -15,16 +15,19 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.chkrish9.googleauth"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.chkrish9.googleauth"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "schema":"testing"
   }
 }
