@@ -12,15 +12,9 @@ const Login = () => {
 
     const signInWithPhoneNumber = async () => {
         try {
-            const userCredentials = await auth.signInWithPhoneNumber(phoneNumber);
-            const user = userCredentials.user;
-
-            const userDocument = await firestore().collection('users').doc(user.id).get();
-            if (userDocument.exists) {
-                navigation.navigate("Dashboard");
-            } else {
-                navigation.navigate("Detail", { uid: user.id });
-            }
+            const confirmation = await auth().signInWithPhoneNumber(phoneNumber);
+            setConfirm(confirmation);
+            
         } catch (e) {
             console.error("Error while sending the code: ",e);
         }
@@ -28,8 +22,14 @@ const Login = () => {
 
     const confirmCode = async () => {
         try {
-            const confirmation = await confirm.confirm(code);
-            setConfirm(confirmation);
+            const userCredentials = await confirm.confirm(code);
+            const user = userCredentials.user;
+            const userDocument = await firestore().collection('users').doc(user.uid).get();
+            if (userDocument.exists) {
+                navigation.navigate("Dashboard");
+            } else {
+                navigation.navigate("Detail", { uid: user.uid });
+            }
         } catch (e) {
             console.error("Invalid code: ",e);
         }
@@ -48,7 +48,7 @@ const Login = () => {
                 Phone Number Auth
             </Text>
             {
-                confirm ? 
+                !confirm ? 
                 (
                     <>
                         <Text
@@ -70,7 +70,7 @@ const Login = () => {
                         }}
                         placeholder='e.g., +1 000-000-0000'
                         value={phoneNumber}
-                        onChange={setPhoneNumber}
+                        onChangeText={setPhoneNumber}
                         />
                         <TouchableOpacity
                         onPress={signInWithPhoneNumber}
@@ -113,7 +113,7 @@ const Login = () => {
                         }}
                         placeholder='Enter code'
                         value={code}
-                        onChange={setCode}
+                        onChangeText={setCode}
                         />
                         <TouchableOpacity
                         onPress={confirmCode}

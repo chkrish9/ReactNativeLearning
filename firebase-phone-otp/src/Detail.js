@@ -42,7 +42,7 @@ const Detail = ({ route, navigation }) => {
                 }}
                 placeholder='Name'
                 value={name}
-                onChange={setName}
+                onChangeText={setName}
             />
             <TextInput
                 style={{
@@ -55,7 +55,7 @@ const Detail = ({ route, navigation }) => {
                 }}
                 placeholder='Date of birth'
                 value={dob}
-                onChange={setDob}
+                onChangeText={setDob}
             />
             <TextInput
                 style={{
@@ -68,7 +68,7 @@ const Detail = ({ route, navigation }) => {
                 }}
                 placeholder='Gender'
                 value={gender}
-                onChange={setGender}
+                onChangeText={setGender}
             />
             <TouchableOpacity
                 onPress={saveDetails}
