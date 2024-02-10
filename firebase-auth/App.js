@@ -86,9 +86,13 @@ export default App = () => {
           // Sign in
           await signInWithEmailAndPassword(auth, email, password);
           console.log('User signed in successfully!');
+          setEmail("");
+          setPassword("");
         } else {
           // Sign up
           await createUserWithEmailAndPassword(auth, email, password);
+          setEmail("");
+          setPassword("");
           console.log('User created successfully!');
         }
       }
