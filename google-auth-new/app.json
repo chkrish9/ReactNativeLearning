@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "google-auth",
-    "slug": "google-auth",
+    "name": "google-auth-new",
+    "slug": "google-auth-new",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -14,20 +14,26 @@
     "assetBundlePatterns": [
       "**/*"
     ],
+    "plugins": [
+      "@react-native-google-signin/google-signin"
+    ],
     "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "com.chkrish9.googleauth"
+      "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.chkrish9.googleauth"
+      "package": "com.chkrish9.googleauthnew"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "schema":"testing"
+    "extra": {
+      "eas": {
+        "projectId": "de2974ff-b088-4003-907b-859c16e3f661"
+      }
+    }
   }
 }
